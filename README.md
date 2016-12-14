@@ -2,10 +2,6 @@
 Will count the weight of the dependency graph and visualize it.
 
 ### Todo
-- Add polymer analyzer
-- Analyze file and find all dependency
-- Count sizes using file size?
-- Analyze directories
 - visualize result.
 
 ### Installation
@@ -22,7 +18,7 @@ You'll run the application with the source directories you want to analyze for
 dependencies.
 
 ```node
-polymer-dependency-weight [dir1..dir(n)]
+polymer-dependency-weight [file1..file(n)]
 ```
 
 ### Output
