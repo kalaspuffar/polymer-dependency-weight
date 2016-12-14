@@ -1,0 +1,29 @@
+{
+  "name": "polymer-dependency-weight",
+  "version": "0.0.1",
+  "description": "Will count the weight of the dependency graph and visualize it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalaspuffar/polymer-dependency-weight.git"
+  },
+  "keywords": [
+    "polymer",
+    "dependency",
+    "weight",
+    "graph",
+    "visualize"
+  ],
+  "author": "Daniel Persson (mailto.woden@gmail.com)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kalaspuffar/polymer-dependency-weight/issues"
+  },
+  "homepage": "https://github.com/kalaspuffar/polymer-dependency-weight#readme",
+  "bin": {
+    "polymer-dependency-weight": "./index.js"
+  }
+}
