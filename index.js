@@ -16,11 +16,13 @@ if (process.argv.length <= 2) {
   process.exit(-1);
 }
 
+var outputString;
 for(var i=2; i<process.argv.length; i++) {
   var processFile = process.argv[i];
   analyzer.analyze(process.argv[i])
     .then((document) => {
-      recursiveWeightSearch(document, 0);
+      outputString = ""
+      recursiveWeightSearch(document, 0, []);
 
       var pathParts = document.url.split('/');
       var filename = pathParts[pathParts.length-1].replace('.html', '');
@@ -32,20 +34,21 @@ for(var i=2; i<process.argv.length; i++) {
     });
 }
 
-var outputString = "";
-
-function recursiveWeightSearch(document, indentCount) {
+function recursiveWeightSearch(document, indentCount, seen) {
   var indentPrefix = "";
   for(var i=0; i<indentCount; i++) indentPrefix += ">> ";
 
-  var stats = fs.statSync(document.url);
-  var size = stats["size"];
+  var size = 0;
+  if(seen.indexOf(document.url) == -1) {
+    size = fs.statSync(document.url)["size"];
+  }
+  seen.push(document.url);
   for(feature of document._localFeatures) {
     if (feature.kinds.has('import')) {
-      size += recursiveWeightSearch(feature.document, indentCount+1);
+      size += recursiveWeightSearch(feature.document, indentCount+1, seen);
     }
   }
 
-  outputString += (indentPrefix + document.url + " - " + Math.round(size / 1024.0) + " kb\n");
+  outputString += (indentPrefix + document.url + " - " + (size > 0 ? Math.round(size / 1024.0) : 0) + " kb\n");
   return size;
 }
