@@ -1,6 +1,6 @@
 {
   "name": "polymer-dependency-weight",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Will count the weight of the dependency graph and visualize it.",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,8 @@
   "homepage": "https://github.com/kalaspuffar/polymer-dependency-weight#readme",
   "bin": {
     "polymer-dependency-weight": "./index.js"
+  },
+  "dependencies": {
+    "polymer-analyzer": "^2.0.0-alpha.19"
   }
 }
