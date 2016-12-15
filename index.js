@@ -21,7 +21,7 @@ for(var i=2; i<process.argv.length; i++) {
   var processFile = process.argv[i];
   analyzer.analyze(process.argv[i])
     .then((document) => {
-      outputString = ""
+      outputString = "";
       recursiveWeightSearch(document, 0, []);
 
       var pathParts = document.url.split('/');
