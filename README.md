@@ -14,8 +14,8 @@ npm install -g polymer-dependency-weight
 
 ### Usage
 
-You'll run the application with the source directories you want to analyze for
-dependencies.
+You'll run the application inside your project directory with the source files
+you want to analyze.
 
 ```node
 polymer-dependency-weight [file1..file(n)]
